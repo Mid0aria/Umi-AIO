@@ -2,6 +2,8 @@
 Umi AIO
 </div>
 
+If you can, please take a minute to star this repo and follow me, It will be much appreciated!!!
+
 ### Usage
 
 1. <a href="https://github.com/Mid0aria/Umi-AIO//archive/refs/heads/main.zip">Download ZIP here and extract the ZIP</a>
