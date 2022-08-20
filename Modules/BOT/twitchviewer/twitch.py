@@ -26,7 +26,7 @@ class twitchviewerbyesu:
             self.twitchlink = self.twitchlink.split("/twitch.tv/")[1]
         if "?" in self.twitchlink:
             self.twitchlink = self.twitchlink.split("?")[0]
-            print(self.twitchlink)    
+#             print(self.twitchlink)    
             if self.proxy == None:
                 return None, f"unable to send request on register"
             return None, f"bad proxy on register {self.proxy}"    
