@@ -5,13 +5,13 @@ colorama.init(convert=True)
 os.system("title Umi AIO")
 os.system("cls")
 
-print(colorama.Fore.GREEN + "\n[1] Bot Modules" + colorama.Fore.RED + "\n[2] SmsBomb Modules")
+print(colorama.Fore.GREEN + "[1] Bot Modules"+ colorama.Fore.MAGENTA + "\n[2] SmsBomb Modules"+ colorama.Fore.YELLOW + "\n[3] Generator Modules")
 moduleinput = int(input(colorama.Fore.RESET + "\n[Umi AIO] Select Module > "))
 
 #Bot Modules
 if moduleinput == 1: 
     os.system("cls")
-    print(colorama.Fore.GREEN + "\n[1] Spotify" + colorama.Fore.MAGENTA + "\n[2] Twitch"+ colorama.Fore.RESET +"(Viewer)")
+    print(colorama.Fore.GREEN + "[1] Spotify" + colorama.Fore.MAGENTA + "\n[2] Twitch"+ colorama.Fore.RESET +"(Viewer)")
     botinput = int(input(colorama.Fore.RESET + "\n[Umi AIO] Select Module > "))
 #BOT Inputs
     if botinput == 1:
@@ -20,14 +20,24 @@ if moduleinput == 1:
     if botinput == 2:
         os.system("cls")
         from Modules.BOT.twitchviewer.twitch import *
-    
-    
+        
+
 #SMS Modules
 if moduleinput == 2:
     os.system("cls")
-    print(colorama.Fore.GREEN + "\n[1] SMSBomberTR(Proxyless, Turkey)")
+    print(colorama.Fore.GREEN + "[1] SMSBomberTR(Proxyless, Turkey)")
     smsinput = int(input(colorama.Fore.RESET + "\n[Umi AIO] Select Module > "))  
 #SMS Inputs    
     if smsinput == 1:
         os.system("cls")
         from Modules.SMS.smsbomberesu.smsbomberturkey import *    
+        
+#Generator Modules
+if moduleinput == 3:
+    os.system("cls")
+    print(colorama.Fore.GREEN + "[1] MubiCodeGenerator")
+    generatorinput = int(input(colorama.Fore.RESET + "\n[Umi AIO] Select Module > "))  
+#Generator Inputs    
+    if generatorinput == 1:
+        os.system("cls")
+        from Modules.Generator.mubicode.mubicodegenerator import *    
