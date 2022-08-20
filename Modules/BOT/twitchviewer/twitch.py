@@ -26,9 +26,13 @@ class twitchviewerbyesu:
             self.twitchlink = self.twitchlink.split("/twitch.tv/")[1]
         if "?" in self.twitchlink:
             self.twitchlink = self.twitchlink.split("?")[0]
+            print(self.twitchlink)    
             if self.proxy == None:
                 return None, f"unable to send request on register"
-            return None, f"bad proxy on register {self.proxy}"                    
+            return None, f"bad proxy on register {self.proxy}"    
+        proxies = None
+        if self.proxy != None:
+            proxies = {"https": f"http://{self.proxy}"}                
         try:
             requests.get("https://www.twitch.tv/"+ self.twitchlink, proxies = proxies)    
             return True
