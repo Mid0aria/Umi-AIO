@@ -44,7 +44,7 @@ This project is licensed under the GPL General Public License v3.0 License - see
 
 ## 🎉・Suggestions
 
--   If you want to make suggestions or add modules you have made, [Click Me](./issues/new)
+-   If you want to make suggestions or add modules you have made, <a href="https://github.com/Mid0aria/Umi-AIO/issues/new">[Click Me]</a>
 
 ## ⭐・Give A Star
 
