@@ -1,6 +1,6 @@
 # Umi AIO
 
-# Usage
+## 🎈 Usage
 
 ```
 > download zip file
@@ -8,7 +8,7 @@
 > run py main.py
 ```
 
-# Modules
+## 📚 Modules
 
 -   **Bot Modules**
     -   Spotify
@@ -18,9 +18,9 @@
 -   **Generator Modules**
     -   MubiCodeGenerator
 
-# 🚩 Changelog:
+## 🚩 Changelog:
 
-```
+```diff
 v0.0.2 ⋮ 2022-08-21
 + Added Generator Modules(MubiCodeGenerator)
 + Added ExampleModule for you
@@ -32,6 +32,6 @@ v0.0.1 ⋮ 2022-08-18
 + Project Started
 ```
 
-# ⭐ Give A Star
+## ⭐ Give A Star
 
 You can also give this repository a star to show more people and they can use this repository
