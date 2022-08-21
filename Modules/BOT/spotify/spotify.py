@@ -408,10 +408,10 @@ threads = int(input(f"\n[{modulename}] Threads > "))
 print("\n[1] Proxies\n[2] Get Free Proxies(Maybe you get bad proxies)\n[3] Proxyless")
 proxyinput = int(input(f"\n[{modulename}] Select Preference > "))
 
-if proxyinput == 2:
+if proxyinput == 1:
     print("\n[1] Http\n[2] Socks4\n[3] Socks5")
     proxytype = int(input(f"\n[{modulename}] Select Proxy Type > "))
-if proxyinput == 3:
+if proxyinput == 2:
     print("\n[1] Http\n[2] Socks4\n[3] Socks5")
     proxytype = int(input(f"\n[{modulename}] Select Proxy Type > "))    
 os.system("cls")
@@ -477,11 +477,11 @@ def thread_starter():
         result, error = obj.follow()
         if result == True:
             counter += 1
-            safe_print(colorama.Fore.MAGENTA + "[{modulename}/User] " + colorama.Fore.GREEN + "Follower Sended")
+            safe_print(colorama.Fore.MAGENTA + f"[{modulename}/User] " + colorama.Fore.GREEN + "Follower Sended")
             count()
         else:
             errorcounter += 1
-            safe_print(colorama.Fore.MAGENTA + "[{modulename}/User] " + colorama.Fore.RED + f"Error {error}")
+            safe_print(colorama.Fore.MAGENTA + f"[{modulename}/User] " + colorama.Fore.RED + f"Error {error}")
             count()
     else:
         if proxyinput == 1:
