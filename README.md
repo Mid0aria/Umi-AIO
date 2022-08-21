@@ -34,7 +34,7 @@ v0.0.1 ⋮ 2022-08-18
 
 ## 📄・License
 
-This project is licensed under the GPL General Public License v3.0 License - see the [LICENSE.md](./LICENSE) file for details
+This project is licensed under the GNU General Public License v3.0 License - see the [LICENSE.md](./LICENSE) file for details
 
 ```js
   ・Educational purpose only and all your consequences caused by you actions is your responsibility
