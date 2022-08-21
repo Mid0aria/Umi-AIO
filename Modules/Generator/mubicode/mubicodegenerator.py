@@ -27,7 +27,8 @@ class mubicodegeneratorbyesu:
     
             
     def generator(self): # your loop function
-        code = self.codegen(6)
+        code = "FZG4NZ"
+        # code = self.codegen(6)
         if code == None:
             return None, "while calling codegen"
         proxies = None

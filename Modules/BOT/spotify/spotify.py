@@ -7,13 +7,16 @@ errorcounter = 0
 proxyfilelines = 0
 proxies = []
 proxy_counter = 0
+modulename = "Spotify"
+moduleowner = "ESU"
 
 class spotifyuserfollow:
 
-    def __init__(self, profile, proxy = None):
+    def __init__(self, profile, proxytype = None, proxy = None):
         self.session = requests.Session()
         self.profile = profile
         self.proxy = proxy
+        self.proxytype = proxytype
     
     def register_account(self):
         headers = {
@@ -26,7 +29,12 @@ class spotifyuserfollow:
         password = ("").join(random.choices(string.ascii_letters + string.digits, k = 8))
         proxies = None
         if self.proxy != None:
-            proxies = {"https": f"http://{self.proxy}"}
+            if self.proxytype == 1:
+                proxies = {"http": f"http://{self.proxy}","https": f"http://{self.proxy}"}
+            if self.proxytype == 2:
+                proxies = {"http": f"socks4://{self.proxy}","https": f"socks4://{self.proxy}"}
+            if self.proxytype == 3:
+                proxies = {"http": f"socks5://{self.proxy}","https": f"socks5://{self.proxy}"}
         data = f"birth_day=1&birth_month=01&birth_year=1970&collect_personal_info=undefined&creation_flow=&creation_point=https://www.spotify.com/uk/&displayname={names.get_full_name()}&email={email}&gender=neutral&iagree=1&key=a1e486e2729f46d6bb368d6b2bcda326&password={password}&password_repeat={password}&platform=www&referrer=&send-email=1&thirdpartyemail=0&fb=0"
         try:
             create = self.session.post("https://spclient.wg.spotify.com/signup/public/v1/account", headers = headers, data = data, proxies = proxies)
@@ -110,10 +118,11 @@ class spotifyuserfollow:
 """
 class spotifyplaylistfollow:
 
-    def __init__(self, playlist, proxy = None):
+    def __init__(self, playlist, proxytype, proxy = None):
         self.session = requests.Session()
         self.playlist = playlist
         self.proxy = proxy
+        self.proxytype = proxytype
     
     def register_account(self):
         headers = {
@@ -125,8 +134,14 @@ class spotifyplaylistfollow:
         email = ("").join(random.choices(string.ascii_letters + string.digits, k = 8)) + "@gmail.com"
         password = ("").join(random.choices(string.ascii_letters + string.digits, k = 8))
         proxies = None
+        proxies = None
         if self.proxy != None:
-            proxies = {"https": f"http://{self.proxy}"}
+            if self.proxytype == 1:
+                proxies = {"http": f"http://{self.proxy}","https": f"http://{self.proxy}"}
+            if self.proxytype == 2:
+                proxies = {"http": f"socks4://{self.proxy}","https": f"socks4://{self.proxy}"}
+            if self.proxytype == 3:
+                proxies = {"http": f"socks5://{self.proxy}","https": f"socks5://{self.proxy}"}
         data = f"birth_day=1&birth_month=01&birth_year=1970&collect_personal_info=undefined&creation_flow=&creation_point=https://www.spotify.com/uk/&displayname={names.get_full_name()}&email={email}&gender=neutral&iagree=1&key=a1e486e2729f46d6bb368d6b2bcda326&password={password}&password_repeat={password}&platform=www&referrer=&send-email=1&thirdpartyemail=0&fb=0"
         try:
             create = self.session.post("https://spclient.wg.spotify.com/signup/public/v1/account", headers = headers, data = data, proxies = proxies)
@@ -381,109 +396,108 @@ class spotifyplaylistfollow:
 """
 
 
-os.system("title SpotifyModule by ESU")
+os.system(f"title {modulename} by {moduleowner}")
 print("\n[1] Profile Follower Bot") #\n[2] Playlist Follower Bot(Not Working)")
-moduleinput = int(input("\n[Umi AIO] Select Module > "))
+moduleinput = int(input(f"\n[{modulename}] Select Module > "))
+if moduleinput == 1:
+    spotify_profile = str(input(f"[{modulename}/User] Spotify User Link: "))
+else:
+    spotify_playlist = str(input(f"[{modulename}/Playlist] Spotify Playlist Link: "))
+    
+threads = int(input(f"\n[{modulename}] Threads > "))
+print("\n[1] Proxies\n[2] Get Free Proxies(Maybe you get bad proxies)\n[3] Proxyless")
+proxyinput = int(input(f"\n[${modulename}] Select Preference > "))
+
+if proxyinput == 2:
+    print("\n[1] Http\n[2] Socks4\n[3] Socks5")
+    proxytype = int(input(f"\n[${modulename}] Select Proxy Type > "))
+if proxyinput == 3:
+    print("\n[1] Http\n[2] Socks4\n[3] Socks5")
+    proxytype = int(input(f"\n[${modulename}] Select Proxy Type > "))    
+os.system("cls")
 
 script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
 rel_path = "../../../proxies.txt"
 proxiesdir = os.path.join(script_dir, rel_path)
-
+           
 def load_proxies():
-    global proxyfilelines
-    if not os.path.exists(proxiesdir):
-        print(colorama.Fore.YELLOW + "\nFile proxies.txt not found")
-        time.sleep(5)
-        os._exit(0)
-    with open(proxiesdir, "r", encoding = "UTF-8") as f:
-        for line in f.readlines():
-            line = line.replace("\n", "")
-            proxyfilelines = len(proxies)
-            proxyfilelines += 1
-            proxies.append(line)            
-        if not len(proxies):
-            print(colorama.Fore.YELLOW + "\nNo proxies loaded in proxies.txt")
+        global proxyfilelines
+        if not os.path.exists(proxiesdir):
+            print(colorama.Fore.YELLOW + "\nFile proxies.txt not found")
             time.sleep(5)
             os._exit(0)
-
+        with open(proxiesdir, "r", encoding = "UTF-8") as f:
+            for line in f.readlines():
+                line = line.replace("\n", "")
+                proxyfilelines = len(proxies)
+                proxyfilelines += 1
+                proxies.append(line)            
+            if not len(proxies):
+                print(colorama.Fore.YELLOW + "\nNo proxies loaded in proxies.txt")
+                time.sleep(5)
+                os._exit(0)
+    
 
 def getfreeproxy():
-    # HTTP Proxies
-    urllib.request.urlretrieve("https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all", proxiesdir)
-    # Socks4 Proxies
-    with urllib.request.urlopen("https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks4&timeout=10000&country=all&ssl=all&anonymity=all") as response:
-        socks4data = response.read().decode("utf-8")
-        with open(proxiesdir, "a+") as fp: fp.write(str(socks4data))
-    # Socks5 Proxies
-    with urllib.request.urlopen("https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout=10000&country=all&ssl=all&anonymity=all") as response:
-        socks5data = response.read().decode("utf-8")
-        with open(proxiesdir, "a+") as fp : fp.write(str(socks5data))
-    # Remove Blank Lines    
-    with open(proxiesdir, "a+", encoding = "UTF-8") as f:
-        for line in f:
-            if not line.isspace():  
-                f.write(line)
-                
-if moduleinput == 1:
-    spotify_profile = str(input("[User Module] Spotify User Link: "))
-else:
-    spotify_playlist = str(input("[Playlist Module] Spotify Playlist Link: "))
+    if proxytype == 1:
+       # HTTP Proxies
+       urllib.request.urlretrieve("https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all", proxiesdir)
+    if proxytype == 2:
+       # Socks4 Proxies
+       urllib.request.urlretrieve("https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks4&timeout=10000&country=all&ssl=all&anonymity=all", proxiesdir)
+    if proxytype == 3:           
+       # Socks5 Proxies
+       urllib.request.urlretrieve("https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout=10000&country=all&ssl=all&anonymity=all", proxiesdir)
 
-threads = int(input("\n[Umi AIO] Threads: "))
-
-
-print("\n[1] Proxies(Recommended)\n[2] Get Free Proxies(Maybe you get bad proxies)\n[3] Proxyless(Not Recommended)")
-proxyinput = int(input("\nSelect Proxy Preference > "))
-os.system("cls")
 if proxyinput == 2:
-    getfreeproxy()
-    time.sleep(1)
-    load_proxies()
+        getfreeproxy()
+        time.sleep(1)
+        load_proxies()
 
 if proxyinput == 1:
-    load_proxies()
+        load_proxies()
 
 def safe_print(arg):
-    lock.acquire()
-    print(arg)
-    lock.release()
+        lock.acquire()
+        print(arg)
+        lock.release()
 
 def count():
-        os.system(f'title [Spotify Module] Followed = {counter} / Error = {errorcounter} / Proxy = {proxyfilelines}')
+        os.system(f'title [{modulename} by {moduleowner}] Generated = {counter} / Error = {errorcounter} / Proxy = {proxyfilelines}')
 
 def thread_starter():
     global counter, errorcounter
     if moduleinput == 1:
         if proxyinput == 1:
-            obj = spotifyuserfollow(spotify_profile, proxies[proxy_counter])
+            obj = spotifyuserfollow(spotify_profile, proxytype, proxies[proxy_counter])
         if proxyinput == 2:
-            obj = spotifyuserfollow(spotify_profile, proxies[proxy_counter])
+            obj = spotifyuserfollow(spotify_profile, proxytype, proxies[proxy_counter])
         else:
             obj = spotifyuserfollow(spotify_profile)
         result, error = obj.follow()
         if result == True:
             counter += 1
-            safe_print(colorama.Fore.MAGENTA + "[Spotify/User Module] " + colorama.Fore.GREEN + "Follower Sended")
+            safe_print(colorama.Fore.MAGENTA + "[{modulename}/User] " + colorama.Fore.GREEN + "Follower Sended")
             count()
         else:
             errorcounter += 1
-            safe_print(colorama.Fore.MAGENTA + "[Spotify/User Module] " + colorama.Fore.RED + f"Error {error}")
+            safe_print(colorama.Fore.MAGENTA + "[{modulename}/User] " + colorama.Fore.RED + f"Error {error}")
             count()
     else:
         if proxyinput == 1:
-            obj = spotifyplaylistfollow(spotify_playlist, proxies[proxy_counter])
+            obj = spotifyplaylistfollow(spotify_playlist, proxytype, proxies[proxy_counter])
         if proxyinput == 2:
-            obj = spotifyplaylistfollow(spotify_playlist, proxies[proxy_counter])
+            obj = spotifyplaylistfollow(spotify_playlist, proxytype, proxies[proxy_counter])
         else:
-            obj = spotifyplaylistfollow(spotify_playlist)
+            obj = spotifyplaylistfollow(spotify_playlist, proxytype)
         result, error = obj.follow()
         if result == True:
             counter += 1
-            safe_print(colorama.Fore.MAGENTA + "[Spotify/Playlist Module] " + colorama.Fore.GREEN + "Follower Sended")
+            safe_print(colorama.Fore.MAGENTA + f"[{modulename}/Playlist] " + colorama.Fore.GREEN + "Follower Sended")
             count()
         else:
             errorcounter += 1
-            safe_print(colorama.Fore.MAGENTA + "[Spotify/Playlist Module] " + colorama.Fore.RED + f"Error {error}")
+            safe_print(colorama.Fore.MAGENTA + f"[{modulename}/Playlist] " + colorama.Fore.RED + f"Error {error}")
             count()
 while True:
     if threading.active_count() <= threads:
