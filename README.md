@@ -1,10 +1,14 @@
 # Umi AIO
 
-<div align="center">
-If you can, please take a minute to star this repo and follow me, It will be much appreciated!!!
-</div>
+# Usage
 
-### Modules
+```
+> download zip file
+> run py -m pip install requirements.txt
+> run py main.py
+```
+
+# Modules
 
 -   **Bot Modules**
     -   Spotify
@@ -14,8 +18,20 @@ If you can, please take a minute to star this repo and follow me, It will be muc
 -   **Generator Modules**
     -   MubiCodeGenerator
 
-### Usage
+# 🚩 Changelog:
 
-1. <a href="https://github.com/Mid0aria/Umi-AIO//archive/refs/heads/main.zip">Download ZIP here and extract the ZIP</a>
-2. Install requirements.txt by typing `py -m pip install -r requirements.txt` in command prompt
-3. Type `py main.py` at command prompt to run
+```diff
+v0.0.2 ⋮ 2022-08-21
++ Added Generator Modules(MubiCodeGenerator)
++ Added ExampleModule for you
++ cleaner code
+
+v0.0.1 ⋮ 2022-08-18
++ Added Bot Modules(Spotify, Twitch(Viewer))
++ Added SmsBomb Modules(SmsBombTR)
++ Project Started
+```
+
+# ⭐ Give A Star
+
+You can also give this repository a star to show more people and they can use this repository
