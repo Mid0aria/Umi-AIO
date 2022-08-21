@@ -1,6 +1,6 @@
 # Umi AIO
 
-## 🎈 Usage
+## 🎈・Usage
 
 ```
 > download zip file
@@ -8,7 +8,7 @@
 > run py main.py
 ```
 
-## 📚 Modules
+## 📚・Modules
 
 -   **Bot Modules**
     -   Spotify
@@ -18,7 +18,7 @@
 -   **Generator Modules**
     -   MubiCodeGenerator
 
-## 🚩 Changelog:
+## 🚩・Changelog:
 
 ```
 v0.0.2 ⋮ 2022-08-21
@@ -32,6 +32,20 @@ v0.0.1 ⋮ 2022-08-18
 + Project Started
 ```
 
-## ⭐ Give A Star
+## 📄・License
+
+This project is licensed under the GPL General Public License v3.0 License - see the [LICENSE.md](./LICENSE) file for details
+
+```js
+  ・Educational purpose only and all your consequences caused by you actions is your responsibility
+  ・Selling this Free gen is forbidden
+  ・If you make a copy of this/or fork it, it must be open-source and have credits linking to this repo
+```
+
+## 🎉・Suggestions
+
+-   If you want to make suggestions or add modules you have made, [Click Me]("https://github.com/Mid0aria/Umi-AIO/issues/new")
+
+## ⭐・Give A Star
 
 You can also give this repository a star to show more people and they can use this repository
