@@ -1,6 +1,6 @@
 <div align="center">
-Umi AIO
-  If you can, please take a minute to star this repo and follow me, It will be much appreciated!!!
+Umi AIO<br>
+If you can, please take a minute to star this repo and follow me, It will be much appreciated!!!
 </div>
 
 
