@@ -39,14 +39,14 @@ os.system(f"title {modulename} by {moduleowner}")
 
 threads = int(input(f"\n[{modulename}] Threads > "))
 print("\n[1] Proxies\n[2] Get Free Proxies(Maybe you get bad proxies)\n[3] Proxyless")
-proxyinput = int(input(f"\n[${modulename}] Select Preference > "))
+proxyinput = int(input(f"\n[{modulename}] Select Preference > "))
 
 if proxyinput == 1:
     print("\n[1] Http\n[2] Socks4\n[3] Socks5")
-    proxytype = int(input(f"\n[${modulename}] Select Proxy Type > "))
+    proxytype = int(input(f"\n[{modulename}] Select Proxy Type > "))
 if proxyinput == 2:
     print("\n[1] Http\n[2] Socks4\n[3] Socks5")
-    proxytype = int(input(f"\n[${modulename}] Select Proxy Type > "))    
+    proxytype = int(input(f"\n[{modulename}] Select Proxy Type > "))    
 os.system("cls")
 
 script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in

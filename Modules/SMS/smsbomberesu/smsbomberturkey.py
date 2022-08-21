@@ -84,14 +84,14 @@ os.system(f"title {modulename} by {moduleowner}")
 phonenumber = int(input(colorama.Fore.RESET + f"\n[{modulename}] Enter Phone Number without +90 > "))
 threads = int(input(f"\n[{modulename}] Threads > "))
 print("\n[1] Proxyless\n[2] Proxies\n[3] Get Free Proxies(Maybe you get bad proxies)")
-proxyinput = int(input(f"\n[${modulename}] Select Preference > "))
+proxyinput = int(input(f"\n[{modulename}] Select Preference > "))
 
 if proxyinput == 2:
     print("\n[1] Http\n[2] Socks4\n[3] Socks5")
-    proxytype = int(input(f"\n[${modulename}] Select Proxy Type > "))
+    proxytype = int(input(f"\n[{modulename}] Select Proxy Type > "))
 if proxyinput == 3:
     print("\n[1] Http\n[2] Socks4\n[3] Socks5")
-    proxytype = int(input(f"\n[${modulename}] Select Proxy Type > "))    
+    proxytype = int(input(f"\n[{modulename}] Select Proxy Type > "))    
 os.system("cls")
 
 script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
