@@ -20,7 +20,7 @@
 
 ## 🚩 Changelog:
 
-```diff
+```
 v0.0.2 ⋮ 2022-08-21
 + Added Generator Modules(MubiCodeGenerator)
 + Added ExampleModule for you
