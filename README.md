@@ -17,16 +17,25 @@
     -   SMSBomberTR
 -   **Generator Modules**
     -   MubiCodeGenerator
+-   **Checker Modules**
+    -   Wolfteam
 
 ## 🚩・Changelog:
 
 ```
-v0.0.2 ⋮ 2022-08-21
+v 0.1.4 ⋮ 2022-08-28
++ Added playlist option inside spotify module
+
+v0.1.3 ⋮ 2022-08-22
++ Added Checker Modules (Wolfteam)
++ Added ExampleCheckerModule for you
+
+v0.1.2 ⋮ 2022-08-21
 + Added Generator Modules(MubiCodeGenerator)
 + Added ExampleModule for you
 + cleaner code
 
-v0.0.1 ⋮ 2022-08-18
+v0.1.1 ⋮ 2022-08-18
 + Added Bot Modules(Spotify, Twitch(Viewer))
 + Added SmsBomb Modules(SmsBombTR)
 + Project Started
