@@ -293,7 +293,7 @@ def safe_print(arg):
         lock.release()
 
 def count():
-        os.system(f'title [{modulename} by {moduleowner}] Generated = {counter} / Error = {errorcounter} / Proxy = {proxyfilelines}')
+        os.system(f'title [{modulename} by {moduleowner}] Followed = {counter} / Error = {errorcounter} / Proxy = {proxyfilelines}')
 
 def thread_starter():
     global counter, errorcounter
