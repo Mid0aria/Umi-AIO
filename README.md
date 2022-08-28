@@ -27,7 +27,6 @@ v 0.1.4 ⋮ 2022-08-28
 + Added playlist option inside spotify module
 
 v0.1.3 ⋮ 2022-08-22
-+ Added Checker Modules (Wolfteam)
 + Added ExampleCheckerModule for you
 
 v0.1.2 ⋮ 2022-08-21
