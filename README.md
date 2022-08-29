@@ -17,8 +17,6 @@
     -   SMSBomberTR
 -   **Generator Modules**
     -   MubiCodeGenerator
--   **Checker Modules**
-    -   Wolfteam
 
 ## 🚩・Changelog:
 
