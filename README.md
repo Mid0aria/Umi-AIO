@@ -4,7 +4,7 @@
 
 ```
 > YOU NEED PYTHON3.10 !
-> download zip file
+> download zip file or run git clone https://github.com/Mid0aria/Umi-AIO.git
 > run py -m pip install requirements.txt
 > run py main.py
 ```
