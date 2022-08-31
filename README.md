@@ -3,6 +3,7 @@
 ## 🎈・Usage
 
 ```
+> YOU NEED PYTHON3.10 !
 > download zip file
 > run py -m pip install requirements.txt
 > run py main.py
@@ -17,10 +18,19 @@
     -   SMSBomberTR
 -   **Generator Modules**
     -   MubiCodeGenerator
+-   **Checker Modules**
+    -   Blutv (Web+SmartTv API)
+-   **Bypass Modules**
+    -   Trlink link Bypass (ay.live, aylink.co ...)
 
 ## 🚩・Changelog:
 
 ```
+v 0.1.5 ⋮ 2022-08-31
++ Added Bypass Modules(Trlink)
++ Added Checker Modules(Blutv(Web+SmartTv API))
++ Added saving hits of generator and checker modules into exports folder
+
 v 0.1.4 ⋮ 2022-08-28
 + Added playlist option inside spotify module
 

@@ -42,9 +42,9 @@ class mubicodegeneratorbyesu:
             r = requests.get("https://mubi.com/services/api/special_promos/" + code)        
             if 'campaign":"' in r.text:
                 script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
-                rel_path = "../../../mubicodegenerated.txt"
-                mubicodedir = os.path.join(script_dir, rel_path)                
-                with open(mubicodedir, "a") as f:
+                rel_path = "../../../EXPORTS/mubicodegenerated.txt"
+                dir = os.path.join(script_dir, rel_path)                
+                with open(dir, "a") as f:
                     f.write("Code: " + code + " Campaign: " + r.json()["campaign"] + " Type: " + r.json()["type"] + " Code Description: "+ r.json()["plain_text"] + "\n")                
                 return True, "Code Generated > " + code
             if r.status_code(404):

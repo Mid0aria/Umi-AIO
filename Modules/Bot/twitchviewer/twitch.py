@@ -12,16 +12,25 @@ errorcounter = 0
 proxyfilelines = 0
 proxies = []
 proxy_counter = 0
-modulename = "ExampleModule"
+modulename = "TwitchViewer"
 moduleowner = "ESU"
 
 
-class examplemodule:
-    def __init__(self, proxytype = None, proxy = None):
+class twitchviewerbyesu:
+    def __init__(self, twitchlink, proxytype = None, proxy = None):
         self.proxy = proxy
         self.proxytype = proxytype
-        
-    def examplemodule2(self): # your loop function
+        self.twitchlink = twitchlink
+
+    def viewer(self):
+        if "/twitch.tv/" in self.twitchlink:
+            self.twitchlink = self.twitchlink.split("/twitch.tv/")[1]
+        if "?" in self.twitchlink:
+            self.twitchlink = self.twitchlink.split("?")[0]
+            print(self.twitchlink)    
+            if self.proxy == None:
+                return None, f"unable to send request on register"
+            return None, f"bad proxy on register {self.proxy}"    
         proxies = None
         if self.proxy != None:
             if self.proxytype == 1:
@@ -29,16 +38,20 @@ class examplemodule:
             if self.proxytype == 2:
                 proxies = {"http": f"socks4://{self.proxy}","https": f"socks4://{self.proxy}"}
             if self.proxytype == 3:
-                proxies = {"http": f"socks5://{self.proxy}","https": f"socks5://{self.proxy}"}
-                        
-        return True
+                proxies = {"http": f"socks5://{self.proxy}","https": f"socks5://{self.proxy}"}            
+        try:
+            r = requests.get("https://www.twitch.tv/"+ self.twitchlink, headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Spotify/1.1.91.824 Safari/537.36"},proxies = proxies)
+            return True, "viewer sended"
+        except:
+            return False, "while sending"        
     
     
     
-os.system(f"title {modulename} by {moduleowner}")   
-
+os.system(f"title {modulename} by {moduleowner}")  
+ 
+twitchlink = input(colorama.Fore.RESET + f"\n[{modulename}] Enter Link > ")
 threads = int(input(f"\n[{modulename}] Threads > "))
-print("\n[1] Proxies\n[2] Get Free Proxies(Maybe you get bad proxies)\n[3] Proxyless")
+print("\n[1] Proxies\n[2] Get Free Proxies(Maybe you get bad proxies)")
 proxyinput = int(input(f"\n[{modulename}] Select Preference > "))
 
 if proxyinput == 1:
@@ -96,24 +109,24 @@ def safe_print(arg):
         lock.release()
 
 def count():
-        os.system(f'title [{modulename} by {moduleowner}] Created-Generated-BlaBla = {counter} / Error = {errorcounter} / Proxy = {proxyfilelines}')
+        os.system(f'title [{modulename} by {moduleowner}] Sended = {counter} / Error = {errorcounter} / Proxy = {proxyfilelines}')
 
 def thread_starter():
         global counter, errorcounter
         if proxyinput == 1:
-            obj = examplemodule(proxytype, proxies[proxy_counter])
+            obj = twitchviewerbyesu(twitchlink, proxytype, proxies[proxy_counter])
         if proxyinput == 2:
-            obj = examplemodule(proxytype, proxies[proxy_counter])
+            obj = twitchviewerbyesu(twitchlink, proxytype, proxies[proxy_counter])
         else:
-            obj = examplemodule()
-        result, message = obj.examplemodule2() # examplemodule2 The name of your module's function that will enter the thread
+            obj = twitchviewerbyesu(twitchlink)
+        result, message = obj.viewer()
         if result == True:
             counter += 1
-            safe_print(colorama.Fore.MAGENTA + f"[{modulename}] " + colorama.Fore.GREEN + message + colorama.Fore.RESET)
+            safe_print(colorama.Fore.MAGENTA + f"[{modulename}] " + colorama.Fore.GREEN + message)
             count()
         else:
             errorcounter += 1
-            safe_print(colorama.Fore.MAGENTA + f"[{modulename}] " + colorama.Fore.RED + f"Error {message}" + colorama.Fore.RESET)
+            safe_print(colorama.Fore.MAGENTA + f"[{modulename}] " + colorama.Fore.RED + f"Error {message}")
             count()
             
 while True:

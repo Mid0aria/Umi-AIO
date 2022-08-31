@@ -1,4 +1,5 @@
 colorama==0.4.4
 names==0.3.0
 requests==2.22.0
+pysocks==1.7.1
 random_user_agent==1.0.1
