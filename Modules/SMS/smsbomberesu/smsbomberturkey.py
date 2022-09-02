@@ -20,7 +20,7 @@ moduleowner = "ESU"
 
 
 class smsbomberturkeybyesu:
-    def __init__(self, phonenumber, proxytype, proxy = None):
+    def __init__(self, phonenumber, proxytype = None, proxy = None):
         self.phonenumber = phonenumber
         self.proxy = proxy
         
@@ -141,7 +141,7 @@ def safe_print(arg):
         lock.release()
 
 def count():
-        os.system(f'title [{modulename} by {moduleowner}] Generated = {counter} / Error = {errorcounter} / Proxy = {proxyfilelines}')
+        os.system(f'title [{modulename} by {moduleowner}] Sended = {counter} / Error = {errorcounter} / Proxy = {proxyfilelines}')
 
 def thread_starter():
         global counter, errorcounter
