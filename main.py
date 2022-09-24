@@ -12,7 +12,7 @@ def connection():
         conn.request("HEAD", "/")
         conn.close()
         return True
-    except Exception as e:
+    except:
         return False
 
 if (connection() == False):
